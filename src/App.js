@@ -7,6 +7,7 @@ function Countdown() {
     const [timerHours, setTimerHours] = useState("00");
     const [timerMinutes, setTimerMinutes] = useState("00");
     const [timerSeconds, setTimerSeconds] = useState("00");
+    const [Datee ,setDatee] = useState("00")
     
 
     
@@ -17,8 +18,8 @@ function Countdown() {
     // timer start
 
     const startTimer = () => {
-        const countdownDate = new Date("September 30, 2020 00:00:00").getTime();
-       
+      //  const countdownDate = new Date("September 30, 2020 00:00:00").getTime();
+        const countdownDate = new Date(Datee).getTime();
        // const countdownDate2 = countdownDate + Date(+30)
      
         
@@ -55,6 +56,14 @@ function Countdown() {
         }
     })
 
+    const newDate = (e)=>{
+      if(Datee){
+        setDatee(e.target.value)
+      }
+        
+        //<button onClick={()=>setDatee("20 August, 2020 00:00:00")}>set</button>
+    }
+
     return (
         <section className="timer-container">
             <section className="timer">
@@ -86,6 +95,10 @@ function Countdown() {
                     </div>
 
 
+                </div>
+                <div>
+                    <input className="dadada" type="date" name="abc" onChange={(e)=>newDate(e)} />
+                    <button onClick={()=>setDatee(Datee)}>set</button>
                 </div>
          
             </section>
